@@ -33,6 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Interop.OPCAutomation">
+      <HintPath>..\..\..\..\Download\SoftwareAutomation\OPC\OPC\Interop.OPCAutomation.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="NgocAuto_OPC">
+      <HintPath>..\..\..\..\Download\SoftwareAutomation\OPC\OPC\NgocAuto_OPC.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
