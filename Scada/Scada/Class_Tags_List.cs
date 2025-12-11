@@ -15,6 +15,7 @@ namespace Scada
             "Tag2",
             "Tag3",
             "Tag4",
+            "Watchdog",
         };
     }
 }

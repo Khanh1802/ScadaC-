@@ -63,6 +63,7 @@ namespace Scada
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.timer_TagScan = new System.Windows.Forms.Timer(this.components);
             this.tabPage5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -415,6 +416,10 @@ namespace Scada
             this.tabControl1.Size = new System.Drawing.Size(1062, 673);
             this.tabControl1.TabIndex = 0;
             // 
+            // timer_TagScan
+            // 
+            this.timer_TagScan.Tick += new System.EventHandler(this.timer_TagScan_Tick);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -478,6 +483,7 @@ namespace Scada
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button Sys_btt_PLC_Data_Save;
         private System.Windows.Forms.Button Sys_btt_PLC_Data_Edit;
+        private System.Windows.Forms.Timer timer_TagScan;
     }
 }
 

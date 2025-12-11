@@ -22,6 +22,10 @@ namespace Scada
         {
             fn_show_para_textbox();
             fn_OPC(); // Kết nối PLC (OPC)
+            
+            // Cài đặt thời gian quét tag
+            timer_TagScan.Interval = Properties.Settings.Default.PLC_Tag_Scan_Time;
+            timer_TagScan.Enabled = true;
         }
 
         #region Kết nối OPC
@@ -59,6 +63,13 @@ namespace Scada
                 PLCMitsubishi.Disconnect();
             }
         }
+
+        // Timer scan
+        public void fn_Tags_Read()
+        {
+            Sys_tbx_WatchDog.Text = PLCMitsubishi.Read("Watchdog");
+        }
+
         #endregion
 
         #endregion
@@ -120,6 +131,10 @@ namespace Scada
             Sys_tbx_PLC_Tag_Scan_Time.Text = Properties.Settings.Default.PLC_Tag_Scan_Time.ToString();
         }
         #endregion
-        
+
+        private void timer_TagScan_Tick(object sender, EventArgs e)
+        {
+            fn_Tags_Read(); // Đọc giá trị tag
+        }
     }
 }
