@@ -1,7 +1,7 @@
 ﻿
 namespace Scada
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace Scada
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -277,6 +277,7 @@ namespace Scada
             this.Sys_btt_Disconnect.TabIndex = 5;
             this.Sys_btt_Disconnect.Text = "Disconnect";
             this.Sys_btt_Disconnect.UseVisualStyleBackColor = false;
+            this.Sys_btt_Disconnect.Click += new System.EventHandler(this.Sys_btt_Disconnect_Click);
             // 
             // Sys_btt_Connect
             // 
@@ -288,6 +289,7 @@ namespace Scada
             this.Sys_btt_Connect.TabIndex = 1;
             this.Sys_btt_Connect.Text = "Connect";
             this.Sys_btt_Connect.UseVisualStyleBackColor = false;
+            this.Sys_btt_Connect.Click += new System.EventHandler(this.Sys_btt_Connect_Click);
             // 
             // panel3
             // 
@@ -413,13 +415,13 @@ namespace Scada
             this.tabControl1.Size = new System.Drawing.Size(1062, 673);
             this.tabControl1.TabIndex = 0;
             // 
-            // Form1
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 673);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

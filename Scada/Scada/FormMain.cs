@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using NgocAuto_OPC;
 namespace Scada
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
         }
@@ -21,8 +21,49 @@ namespace Scada
         private void Form1_Load(object sender, EventArgs e)
         {
             fn_show_para_textbox();
+            fn_OPC(); // Kết nối PLC (OPC)
         }
 
+        #region Kết nối OPC
+        // 1.1 Khai báo OPC
+        KEPServerEX PLCMitsubishi = new KEPServerEX();
+
+        // 1.2 Tạo phương thức kết nối OPC
+        public void fn_OPC()
+        {
+            string IOServer = Properties.Settings.Default.IOServer;
+            string Channel = Properties.Settings.Default.Channel;
+            int PLCscantime = Properties.Settings.Default.PLC_Tag_Scan_Time;
+            PLCMitsubishi.OPCSetting(IOServer, Channel, PLCscantime, Class_Tags_List.Tags_List);
+            PLCMitsubishi.Connect();
+        }
+       
+
+        #region Nút nhấn kết nối & ngắt kết nối
+        // Nút nhấn kết nối
+        private void Sys_btt_Connect_Click(object sender, EventArgs e)
+        {
+            var confirm = Class_Common.fn_Confirm();
+            if (confirm)
+            {
+                PLCMitsubishi.Connect();
+            }
+        }
+
+        // Nút nhấn ngắt kết nối
+        private void Sys_btt_Disconnect_Click(object sender, EventArgs e)
+        {
+            var confirm = Class_Common.fn_Confirm();
+            if (confirm)
+            {
+                PLCMitsubishi.Disconnect();
+            }
+        }
+        #endregion
+
+        #endregion
+
+        #region Cấu hình nút nhấn sửa & lưu
         //1 Chương trình cho nút nhấn sửa
         private void Sys_btt_PLC_Data_Edit_Click(object sender, EventArgs e)
         {
@@ -42,7 +83,7 @@ namespace Scada
                 Sys_btt_PLC_Data_Save.Location = Sys_btt_PLC_Data_Edit.Location;
             }
         }
-
+        
         //2 Chương trình cho nút nhấn lưu
         private void Sys_btt_PLC_Data_Save_Click(object sender, EventArgs e)
         {
@@ -78,6 +119,7 @@ namespace Scada
             Sys_tbx_Channel.Text = Properties.Settings.Default.Channel.ToString();
             Sys_tbx_PLC_Tag_Scan_Time.Text = Properties.Settings.Default.PLC_Tag_Scan_Time.ToString();
         }
-
+        #endregion
+        
     }
 }
