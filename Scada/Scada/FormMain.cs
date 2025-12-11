@@ -22,7 +22,7 @@ namespace Scada
         {
             fn_show_para_textbox();
             fn_OPC(); // Kết nối PLC (OPC)
-            
+
             // Cài đặt thời gian quét tag
             timer_TagScan.Interval = Properties.Settings.Default.PLC_Tag_Scan_Time;
             timer_TagScan.Enabled = true;
@@ -41,7 +41,7 @@ namespace Scada
             PLCMitsubishi.OPCSetting(IOServer, Channel, PLCscantime, Class_Tags_List.Tags_List);
             PLCMitsubishi.Connect();
         }
-       
+
 
         #region Nút nhấn kết nối & ngắt kết nối
         // Nút nhấn kết nối
@@ -61,16 +61,28 @@ namespace Scada
             if (confirm)
             {
                 PLCMitsubishi.Disconnect();
+                // Hiển thị trạng thái disconnect
+                Sys_tbx_PLC_Connect_Status.Text = "Disconnected";
+                Sys_tbx_PLC_Connect_Status.BackColor = Color.Red;
             }
         }
+
+        #endregion
 
         // Timer scan
         public void fn_Tags_Read()
         {
-            Sys_tbx_WatchDog.Text = PLCMitsubishi.Read("Watchdog");
+            string tag_watchdog = PLCMitsubishi.Read("Watchdog");
+            Sys_tbx_WatchDog.Text = tag_watchdog;
+            // Gọi phương thức watchdog            
+            fn_Watchdog(tag_watchdog);
         }
 
-        #endregion
+        // Timer quét giá trị tag
+        private void timer_TagScan_Tick(object sender, EventArgs e)
+        {
+            fn_Tags_Read(); // Đọc giá trị tag
+        }
 
         #endregion
 
@@ -94,7 +106,7 @@ namespace Scada
                 Sys_btt_PLC_Data_Save.Location = Sys_btt_PLC_Data_Edit.Location;
             }
         }
-        
+
         //2 Chương trình cho nút nhấn lưu
         private void Sys_btt_PLC_Data_Save_Click(object sender, EventArgs e)
         {
@@ -132,9 +144,53 @@ namespace Scada
         }
         #endregion
 
-        private void timer_TagScan_Tick(object sender, EventArgs e)
+        #region Hiển thị trạng thái kết nối
+        //-----------------------------------------------
+        //               Xử lý Watchdog              
+        //-----------------------------------------------
+        static int watchdog_last = 0;
+        static int watchdog_timeout = 0;
+        static int reconnect_count = 0;
+
+        // Phương thức watchdog - kiểm tra trạng thái kết nối
+        public void fn_Watchdog(string tag_watchdog_in)
         {
-            fn_Tags_Read(); // Đọc giá trị tag
+            try
+            {
+                int tag_watchdogPresent = int.Parse(tag_watchdog_in);
+                if (tag_watchdogPresent != watchdog_last)
+                {
+                    watchdog_timeout = 0;
+                    reconnect_count = 0;
+                    Sys_tbx_PLC_Connect_Status.Text = "Connected";
+                    Sys_tbx_PLC_Connect_Status.BackColor = Color.Green;
+                    Sys_tbx_PLC_Connect_Status.ForeColor = Color.White;
+                }
+                else
+                {
+                    watchdog_timeout += 1;
+                }
+                watchdog_last = tag_watchdogPresent;
+
+                // Nếu time out thì ngắt kết nối PLC
+                if (watchdog_timeout >= 5) // 5s
+                {
+                    // Hiển thị trạng thái disconnect
+                    Sys_tbx_PLC_Connect_Status.Text = "Disconnected";
+                    Sys_tbx_PLC_Connect_Status.BackColor = Color.Red;
+
+                    // Thực hiện kết nối lại khi bộ đếm >= 15s.
+                    reconnect_count++;
+                    if (reconnect_count >= 15)
+                    {
+                        PLCMitsubishi.Connect(); // Kết nối PLC1
+                        reconnect_count = 0;
+                        watchdog_timeout = 0;
+                    }
+                }
+            }
+            catch { }
         }
+        #endregion
     }
 }
