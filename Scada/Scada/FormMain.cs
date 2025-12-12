@@ -198,5 +198,12 @@ namespace Scada
             catch { }
         }
         #endregion
+
+        private void btt_PLC_WriteToPLC_Click(object sender, EventArgs e)
+        {
+            PLCMitsubishi.Write("Tag1", tbx_Write_TagBool.Text);
+            PLCMitsubishi.Write("Tag2", tbx_Write_TagInt.Text);
+            PLCMitsubishi.Write("Tag3", tbx_Write_TagReal.Text);
+        }
     }
 }

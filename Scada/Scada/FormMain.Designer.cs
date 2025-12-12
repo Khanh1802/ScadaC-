@@ -77,6 +77,20 @@ namespace Scada
             this.panel10 = new System.Windows.Forms.Panel();
             this.tbx_TagString = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.tbx_Write_TagString = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.tbx_Write_TagReal = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.tbx_Write_TagInt = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.tbx_Write_TagBool = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btt_PLC_WriteToPLC = new System.Windows.Forms.Button();
             this.tabPage5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -91,6 +105,11 @@ namespace Scada
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList1
@@ -409,6 +428,7 @@ namespace Scada
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.ImageIndex = 0;
             this.tabPage1.Location = new System.Drawing.Point(4, 54);
@@ -473,7 +493,7 @@ namespace Scada
             this.tbx_TagBool.Name = "tbx_TagBool";
             this.tbx_TagBool.Size = new System.Drawing.Size(120, 21);
             this.tbx_TagBool.TabIndex = 1;
-            this.tbx_TagBool.Text = "False";
+            this.tbx_TagBool.Text = "FALSE";
             // 
             // label7
             // 
@@ -565,6 +585,143 @@ namespace Scada
             this.label10.TabIndex = 7;
             this.label10.Text = "Tag_4 String";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btt_PLC_WriteToPLC);
+            this.groupBox3.Controls.Add(this.panel11);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.panel12);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.panel13);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.panel14);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Location = new System.Drawing.Point(400, 37);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(308, 316);
+            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Fill tag PLC";
+            // 
+            // panel11
+            // 
+            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel11.Controls.Add(this.tbx_Write_TagString);
+            this.panel11.Location = new System.Drawing.Point(156, 182);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(140, 37);
+            this.panel11.TabIndex = 8;
+            // 
+            // tbx_Write_TagString
+            // 
+            this.tbx_Write_TagString.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbx_Write_TagString.Location = new System.Drawing.Point(8, 7);
+            this.tbx_Write_TagString.Name = "tbx_Write_TagString";
+            this.tbx_Write_TagString.Size = new System.Drawing.Size(120, 21);
+            this.tbx_Write_TagString.TabIndex = 1;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(18, 188);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(116, 24);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Tag_4 String";
+            // 
+            // panel12
+            // 
+            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel12.Controls.Add(this.tbx_Write_TagReal);
+            this.panel12.Location = new System.Drawing.Point(156, 139);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(140, 37);
+            this.panel12.TabIndex = 8;
+            // 
+            // tbx_Write_TagReal
+            // 
+            this.tbx_Write_TagReal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbx_Write_TagReal.Location = new System.Drawing.Point(8, 7);
+            this.tbx_Write_TagReal.Name = "tbx_Write_TagReal";
+            this.tbx_Write_TagReal.Size = new System.Drawing.Size(120, 21);
+            this.tbx_Write_TagReal.TabIndex = 1;
+            this.tbx_Write_TagReal.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(18, 145);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(106, 24);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "Tag_3 Real";
+            // 
+            // panel13
+            // 
+            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel13.Controls.Add(this.tbx_Write_TagInt);
+            this.panel13.Location = new System.Drawing.Point(156, 96);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(140, 37);
+            this.panel13.TabIndex = 8;
+            // 
+            // tbx_Write_TagInt
+            // 
+            this.tbx_Write_TagInt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbx_Write_TagInt.Location = new System.Drawing.Point(8, 7);
+            this.tbx_Write_TagInt.Name = "tbx_Write_TagInt";
+            this.tbx_Write_TagInt.Size = new System.Drawing.Size(120, 21);
+            this.tbx_Write_TagInt.TabIndex = 1;
+            this.tbx_Write_TagInt.Text = "0";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(18, 102);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(87, 24);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Tag_2 Int";
+            // 
+            // panel14
+            // 
+            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel14.Controls.Add(this.tbx_Write_TagBool);
+            this.panel14.Location = new System.Drawing.Point(156, 53);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(140, 37);
+            this.panel14.TabIndex = 6;
+            // 
+            // tbx_Write_TagBool
+            // 
+            this.tbx_Write_TagBool.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbx_Write_TagBool.Location = new System.Drawing.Point(8, 7);
+            this.tbx_Write_TagBool.Name = "tbx_Write_TagBool";
+            this.tbx_Write_TagBool.Size = new System.Drawing.Size(120, 21);
+            this.tbx_Write_TagBool.TabIndex = 1;
+            this.tbx_Write_TagBool.Text = "FALSE";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(18, 59);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(106, 24);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Tag_1 Bool";
+            // 
+            // btt_PLC_WriteToPLC
+            // 
+            this.btt_PLC_WriteToPLC.BackColor = System.Drawing.Color.Silver;
+            this.btt_PLC_WriteToPLC.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btt_PLC_WriteToPLC.Location = new System.Drawing.Point(193, 248);
+            this.btt_PLC_WriteToPLC.Name = "btt_PLC_WriteToPLC";
+            this.btt_PLC_WriteToPLC.Size = new System.Drawing.Size(103, 49);
+            this.btt_PLC_WriteToPLC.TabIndex = 13;
+            this.btt_PLC_WriteToPLC.Text = "Write";
+            this.btt_PLC_WriteToPLC.UseVisualStyleBackColor = false;
+            this.btt_PLC_WriteToPLC.Click += new System.EventHandler(this.btt_PLC_WriteToPLC_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -601,6 +758,16 @@ namespace Scada
             this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -653,6 +820,20 @@ namespace Scada
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox tbx_TagBool;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.TextBox tbx_Write_TagString;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.TextBox tbx_Write_TagReal;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.TextBox tbx_Write_TagInt;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.TextBox tbx_Write_TagBool;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btt_PLC_WriteToPLC;
     }
 }
 
