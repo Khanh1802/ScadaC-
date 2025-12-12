@@ -64,6 +64,19 @@ namespace Scada
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.timer_TagScan = new System.Windows.Forms.Timer(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.tbx_TagBool = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.tbx_TagInt = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.tbx_TagReal = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.tbx_TagString = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -71,7 +84,13 @@ namespace Scada
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList1
@@ -390,6 +409,7 @@ namespace Scada
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.ImageIndex = 0;
             this.tabPage1.Location = new System.Drawing.Point(4, 54);
             this.tabPage1.Name = "tabPage1";
@@ -420,6 +440,131 @@ namespace Scada
             // 
             this.timer_TagScan.Tick += new System.EventHandler(this.timer_TagScan_Tick);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.panel10);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.panel9);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.panel8);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.panel7);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Location = new System.Drawing.Point(8, 37);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(308, 316);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Show tag PLC";
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.tbx_TagBool);
+            this.panel7.Location = new System.Drawing.Point(156, 53);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(140, 37);
+            this.panel7.TabIndex = 6;
+            // 
+            // tbx_TagBool
+            // 
+            this.tbx_TagBool.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbx_TagBool.Location = new System.Drawing.Point(8, 7);
+            this.tbx_TagBool.Name = "tbx_TagBool";
+            this.tbx_TagBool.Size = new System.Drawing.Size(120, 21);
+            this.tbx_TagBool.TabIndex = 1;
+            this.tbx_TagBool.Text = "False";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 59);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(106, 24);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Tag_1 Bool";
+            // 
+            // panel8
+            // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Controls.Add(this.tbx_TagInt);
+            this.panel8.Location = new System.Drawing.Point(156, 96);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(140, 37);
+            this.panel8.TabIndex = 8;
+            // 
+            // tbx_TagInt
+            // 
+            this.tbx_TagInt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbx_TagInt.Location = new System.Drawing.Point(8, 7);
+            this.tbx_TagInt.Name = "tbx_TagInt";
+            this.tbx_TagInt.Size = new System.Drawing.Size(120, 21);
+            this.tbx_TagInt.TabIndex = 1;
+            this.tbx_TagInt.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(18, 102);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 24);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Tag_2 Int";
+            // 
+            // panel9
+            // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel9.Controls.Add(this.tbx_TagReal);
+            this.panel9.Location = new System.Drawing.Point(156, 139);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(140, 37);
+            this.panel9.TabIndex = 8;
+            // 
+            // tbx_TagReal
+            // 
+            this.tbx_TagReal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbx_TagReal.Location = new System.Drawing.Point(8, 7);
+            this.tbx_TagReal.Name = "tbx_TagReal";
+            this.tbx_TagReal.Size = new System.Drawing.Size(120, 21);
+            this.tbx_TagReal.TabIndex = 1;
+            this.tbx_TagReal.Text = "0";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(18, 145);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(106, 24);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Tag_3 Real";
+            // 
+            // panel10
+            // 
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel10.Controls.Add(this.tbx_TagString);
+            this.panel10.Location = new System.Drawing.Point(156, 182);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(140, 37);
+            this.panel10.TabIndex = 8;
+            // 
+            // tbx_TagString
+            // 
+            this.tbx_TagString.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbx_TagString.Location = new System.Drawing.Point(8, 7);
+            this.tbx_TagString.Name = "tbx_TagString";
+            this.tbx_TagString.Size = new System.Drawing.Size(120, 21);
+            this.tbx_TagString.TabIndex = 1;
+            this.tbx_TagString.Text = "ABC";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(18, 188);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(116, 24);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Tag_4 String";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -444,7 +589,18 @@ namespace Scada
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -484,6 +640,19 @@ namespace Scada
         private System.Windows.Forms.Button Sys_btt_PLC_Data_Save;
         private System.Windows.Forms.Button Sys_btt_PLC_Data_Edit;
         private System.Windows.Forms.Timer timer_TagScan;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.TextBox tbx_TagString;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.TextBox tbx_TagReal;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.TextBox tbx_TagInt;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TextBox tbx_TagBool;
+        private System.Windows.Forms.Label label7;
     }
 }
 

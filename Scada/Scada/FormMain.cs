@@ -74,6 +74,12 @@ namespace Scada
         {
             string tag_watchdog = PLCMitsubishi.Read("Watchdog");
             Sys_tbx_WatchDog.Text = tag_watchdog;
+
+            // Hiển thị giá trị lên textbox
+            tbx_TagBool.Text = PLCMitsubishi.Read("Tag1");
+            tbx_TagInt.Text = PLCMitsubishi.Read("Tag2");
+            tbx_TagReal.Text = PLCMitsubishi.Read("Tag3");
+            tbx_TagString.Text = PLCMitsubishi.Read("Tag4");
             // Gọi phương thức watchdog            
             fn_Watchdog(tag_watchdog);
         }
