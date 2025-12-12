@@ -16,6 +16,7 @@ namespace Scada
         {
             InitializeComponent();
         }
+        private bool textboxIsInEditting = false;
 
         //Hàm form load
         private void Form1_Load(object sender, EventArgs e)
@@ -80,6 +81,15 @@ namespace Scada
             tbx_TagInt.Text = PLCMitsubishi.Read("Tag2");
             tbx_TagReal.Text = PLCMitsubishi.Read("Tag3");
             tbx_TagString.Text = PLCMitsubishi.Read("Tag4");
+
+            if (!textboxIsInEditting)
+            {
+                // Hiển thị giá trị lên textbox ReadWrite
+                tbx_ReadWrite_Tag1.Text = PLCMitsubishi.Read("Tag1");
+                tbx_ReadWrite_Tag2.Text = PLCMitsubishi.Read("Tag2");
+                tbx_ReadWrite_Tag3.Text = PLCMitsubishi.Read("Tag3");
+            }
+
             // Gọi phương thức watchdog            
             fn_Watchdog(tag_watchdog);
         }
@@ -201,9 +211,42 @@ namespace Scada
 
         private void btt_PLC_WriteToPLC_Click(object sender, EventArgs e)
         {
-            PLCMitsubishi.Write("Tag1", tbx_Write_TagBool.Text);
-            PLCMitsubishi.Write("Tag2", tbx_Write_TagInt.Text);
-            PLCMitsubishi.Write("Tag3", tbx_Write_TagReal.Text);
+            PLCMitsubishi.Write("Tag1", tbx_Write_Tag1.Text);
+            PLCMitsubishi.Write("Tag2", tbx_Write_Tag2.Text);
+            PLCMitsubishi.Write("Tag3", tbx_Write_Tag3.Text);
+        }
+
+        private void btt_Edit_Click(object sender, EventArgs e)
+        {
+            //B1: Bật biến báo đang sửa dữ liệu
+            textboxIsInEditting = true;
+            //B2: Enable textbox ReadWrite
+            tbx_ReadWrite_Tag1.Enabled = true;
+            tbx_ReadWrite_Tag2.Enabled = true;
+            tbx_ReadWrite_Tag3.Enabled = true;
+            //B3: Ẩn button Edit, hiện button Save
+            btt_Save.Visible = true;
+            btt_Edit.Visible = false;
+            //B4: Button Save nằm ở vị trí button Edit
+            btt_Save.Location = btt_Edit.Location;
+        }
+
+        private void btt_Save_Click(object sender, EventArgs e)
+        {
+            //B1: Tắt biến báo đang sửa dữ liệu
+            textboxIsInEditting = false;
+            //B2: Disable textbox ReadWrite
+            tbx_ReadWrite_Tag1.Enabled = false;
+            tbx_ReadWrite_Tag2.Enabled = false;
+            tbx_ReadWrite_Tag3.Enabled = false;
+            tbx_ReadWrite_Tag4.Enabled = false;
+            //B3: Ẩn button Save, hiện button Edit
+            btt_Save.Visible = false;
+            btt_Edit.Visible = true;
+            //B4: Ghi dữ liệu xuống PLC
+            PLCMitsubishi.Write("Tag1", tbx_ReadWrite_Tag1.Text);
+            PLCMitsubishi.Write("Tag2", tbx_ReadWrite_Tag2.Text);
+            PLCMitsubishi.Write("Tag3", tbx_ReadWrite_Tag3.Text);
         }
     }
 }
